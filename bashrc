@@ -54,10 +54,37 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w'
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
 fi
+
+# for __git_ps1
+if [ -f ~/.git-prompt.sh ]; then
+	. ~/.git-prompt.sh
+fi
+
+# Indicate when there are staged/unstaged changes
+GIT_PS1_SHOWDIRTYSTATE=yes
+# Indicate when there are untracked files
+GIT_PS1_SHOWUNTRACKEDFILES=yes
+# Indicate the state compared to the upstream branch
+GIT_PS1_SHOWUPSTREAM=yes
+
+# Append __git_ps1 to show git status
+if [ "$color_prompt" = yes ]; then
+	PS1=$PS1'$(__git_ps1 "\[\033[00m\]:\[\033[1;33m\]%s")'
+else
+	PS1=$PS1'$(__git_ps1 ":%s")'
+fi
+
+# Append $ character and reset color
+if [ "$color_prompt" = yes ]; then
+	PS1=$PS1'\[\033[00m\]\$ '
+else
+	PS1=$PS1'\$ '
+fi
+
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
