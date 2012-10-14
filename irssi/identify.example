@@ -1,0 +1,7 @@
+identify PASSWORD1
+identify PASSWORD2
+# Use the "identify" file to store messages to send to nickserv in
+# order to keep passwords out of the config file.
+# Send them to nickserv within autosendcmd thusly:
+# exec -msg nickserv sed -n '1p' < .irssi/identify
+
