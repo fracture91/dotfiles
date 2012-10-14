@@ -1,0 +1,7 @@
+[user]
+	name = Andrew Hurle
+	email = fracture91@gmail.com
+[core]
+	autocrlf = input
+	mergeoptions = --no-commit
+[merge]
