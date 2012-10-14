@@ -1,0 +1,3 @@
+[submodule "janus/vim-nerdtree-tabs"]
+	path = janus/vim-nerdtree-tabs
+	url = https://github.com/jistr/vim-nerdtree-tabs.git

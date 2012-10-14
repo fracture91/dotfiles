@@ -1,0 +1,5 @@
+colorscheme winter
+
+" start with larger window
+set lines=50 columns=150
+
