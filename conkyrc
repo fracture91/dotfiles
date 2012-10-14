@@ -1,0 +1,83 @@
+# fork to a background process
+background yes
+
+# use own desktop window
+own_window yes
+# normal necessary for partial transparency
+# make sure to ccsm > General Options > uncheck Hide Skip Taskbar Windows
+# otherwise Conky gets minimized when you show desktop
+own_window_type normal 
+own_window_argb_visual yes
+own_window_argb_value 100
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# fix flickering
+double_buffer yes
+
+# want the background to stretch the entire height, but don't want to
+# hardcode the height in... this is close enough
+minimum_size 250 9999
+maximum_width 250
+alignment middle_right
+
+# fancy antialiased fonts
+use_xft yes
+xftfont 123:size=9
+
+# add space to the right of things to keep from moving things around
+use_spacer right
+
+# don't include cached memory in displayed RAM usage
+no_buffers yes
+
+update_interval 1
+
+# how strict the if_up variable is
+if_up_strictness link
+
+
+TEXT
+${if_up eth0}Wired
+${upspeedgraph eth0 40,250 999999 999999 -l}
+↓${downspeed eth0}/${totaldown eth0}\
+${alignr}${upspeed eth0}/${totalup eth0}↑
+${downspeedgraph eth0 40,250 999999 999999 -l}
+${execi 3600 wget -O - http://automation.whatismyip.com/n09230945.asp | tail}\
+${alignr}${addr eth0}
+
+
+${endif}\
+${if_up wlan0}Wireless\
+${alignr}${wireless_essid wlan0}  ${wireless_link_qual_perc wlan0}%
+${upspeedgraph wlan0 40,250 999999 999999 -l}
+↓${downspeed wlan0}/${totaldown wlan0}\
+${alignr}${upspeed wlan0}/${totalup wlan0}↑
+${downspeedgraph wlan0 40,250 999999 999999 -l}
+${execi 3600 wget -O - http://automation.whatismyip.com/n09230945.asp | tail}\
+${alignr}${addr wlan0}
+
+
+${endif}\
+RAM${alignc}${top_mem name 1}${alignr}${mem}
+${memgraph 40,250 999999 999999}
+
+
+I/O${alignc}${top_io name 1}${alignr}${diskio}
+${diskiograph 40,250 999999 999999}
+
+
+CPU${alignc}${top name 1}${alignr}${cpu}%
+${cpugraph cpu0 40,250 999999 999999}
+
+
+${alignc}CPU0: ${execi 1 sensors | grep "Core 0:" | cut -d'+' -f 2 | cut -d'.' -f 1}\
+     CPU: ${execi 1 sensors | grep "Physical id 0:" | cut -d'+' -f 2 | cut -d'.' -f 1}  
+${alignc}CPU1: ${execi 1 sensors | grep "Core 1:" | cut -d'+' -f 2 | cut -d'.' -f 1}\
+      MB: ${hwmon temp 1}  
+${alignc}CPU2: ${execi 1 sensors | grep "Core 2:" | cut -d'+' -f 2 | cut -d'.' -f 1}\
+    HDD: ${hddtemp /dev/sda}  
+${alignc}   CPU3: ${execi 1 sensors | grep "Core 3:" | cut -d'+' -f 2 | cut -d'.' -f 1}\
+     FAN: ${execi 1 sensors | grep "fan1:" | tr -s " " | cut -d" " -f 2}  
+
+
+${alignc}Uptime: ${uptime}
