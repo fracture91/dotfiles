@@ -1,0 +1,22 @@
+[ui]
+username = Andrew Hurle <fracture91@gmail.com>
+
+[defaults]
+qnew = -Ue
+qseries = -s
+qtop = -s
+outgoing = -v
+qapplied = -s
+qunapplied = -s
+
+[extensions]
+hgext.mq =
+color =
+progress =
+#trychooser = /trychooser/trychooser
+
+[diff]
+git = 1
+showfunc = 1
+unified = 8
+
