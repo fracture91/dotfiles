@@ -230,3 +230,9 @@ settings = {
     notify_icon = "/home/ahurle/.local/share/icons/irssi.png";
   };
 };
+
+#control+pgup/down change windows
+keyboard = (
+  { key = "^[[6;5~"; id = "next_window"; data = ""; },
+  { key = "^[[5;5~"; id = "previous_window"; data = ""; }
+);
