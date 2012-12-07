@@ -5,3 +5,8 @@
 	autocrlf = input
 	mergeoptions = --no-commit
 [merge]
+
+[alias]
+	# fast forward to remote branch
+	ff = !branch=$(git symbolic-ref HEAD | sed s:refs/heads/::) && rbranch=$(git config --get branch.$branch.merge | sed s:refs/heads/::) && git merge --ff-only $(git config --get branch.$branch.remote)/$rbranch
+
