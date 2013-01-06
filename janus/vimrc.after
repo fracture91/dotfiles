@@ -12,4 +12,7 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 " If a buffer is open in another tab, switch to that tab
 " i.e. you can use :sb something-in-path to switch to a tab quickly
 set switchbuf=usetab
+set textwidth=100
+" show line where textwidth is
+set colorcolumn=-0
 
