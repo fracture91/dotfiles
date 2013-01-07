@@ -23,8 +23,8 @@ playlists = ["Ponies", "Rating > 4", "Rating > 3", "Rating > 2"]
 parser = argparse.ArgumentParser(description="Sync these foobar2000 playlists and their songs from\
                                  Tassadar to Mengsk: " + str(playlists))
 parser.add_argument("--dry-run", "-n", action='store_true', help="print what will happen, but\
-					don't actually copy or delete any files - highly recommended before a real\
-					run")
+                    don't actually copy or delete any files - highly recommended before a real\
+                    run")
 config = parser.parse_args(namespace=fplsync.Config())
 
 config.playlist_source = os.path.expanduser("~/.foobar2000/playlists")
