@@ -48,13 +48,13 @@ index = fplsync.PlaylistIndex(config)
 for name in playlists:
 	try:
 		director.add_playlist(index.get_playlist(name))
-	except OutOfSpaceException as e:
+	except fplsync.OutOfSpaceException as e:
 		print(e)
 		break
 for name in playlists:
 	try:
 		director.add_songs(index.get_playlist(name), randomly=True)
-	except OutOfSpaceException as e:
+	except fplsync.OutOfSpaceException as e:
 		print(e)
 		break
 director.transfer()
