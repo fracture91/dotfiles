@@ -18,10 +18,13 @@ subprocess.Popen(["winpart", "-w", "tail", "-F", "--pid=" + str(os.getpid()), st
 
 
 # prefer songs in this order
-playlists = ["Ponies", "Rating > 4", "Rating > 3", "Rating > 2"]
+# Priority Tracks playlist is for stuff that has to be on the card, script will warn otherwise
+# (e.g. I want to listen to this album during vacation, make sure it's there)
+playlists = ["Priority Tracks", "Ponies", "Rating > 4", "Rating > 3", "Rating > 2"]
 
 parser = argparse.ArgumentParser(description="Sync these foobar2000 playlists and their songs from\
-                                 Tassadar to Mengsk: " + str(playlists))
+                                 Tassadar to Mengsk: " + str(playlists) + ". If Priority Tracks\
+                                 doesn't fit entirely, script will warn and prompt to continue")
 parser.add_argument("--dry-run", "-n", action='store_true', help="print what will happen, but\
                     don't actually copy or delete any files - highly recommended before a real\
                     run")
@@ -56,6 +59,10 @@ for name in playlists:
 		director.add_songs(index.get_playlist(name), randomly=True)
 	except fplsync.OutOfSpaceException as e:
 		print(e)
+		if name == "Priority Tracks":
+			print("!!! Warning: Some Priority Tracks won't fit!")
+			if input("Enter Y to continue syncing songs: ") != "Y":
+				exit(1)
 		break
 director.transfer()
 
