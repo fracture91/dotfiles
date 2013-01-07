@@ -17,18 +17,7 @@ subprocess.Popen(["winpart", "-w", "tail", "-F", "--pid=" + str(os.getpid()), st
                  stdin=None, stdout=DEVNULL, stderr=DEVNULL)
 
 
-# prefer songs in this order
-# Priority Tracks playlist is for stuff that has to be on the card, script will warn otherwise
-# (e.g. I want to listen to this album during vacation, make sure it's there)
-playlists = ["Priority Tracks", "Ponies", "Rating > 4", "Rating > 3", "Rating > 2"]
-
-parser = argparse.ArgumentParser(description="Sync these foobar2000 playlists and their songs from\
-                                 Tassadar to Mengsk: " + str(playlists) + ". If Priority Tracks\
-                                 doesn't fit entirely, script will warn and prompt to continue")
-parser.add_argument("--dry-run", "-n", action='store_true', help="print what will happen, but\
-                    don't actually copy or delete any files - highly recommended before a real\
-                    run")
-config = parser.parse_args(namespace=fplsync.Config())
+config = fplsync.Config()
 
 config.playlist_source = os.path.expanduser("~/.foobar2000/playlists")
 config.source = "/media/Tassadar/Music/"
@@ -44,6 +33,18 @@ config.playlist_dest = "/media/Mengsk/Playlists/Tassadar"
 # never use up the last gig, and always leave 500 megs free
 config.max_size = "-1G"
 config.min_free = "500M"
+
+# prefer songs in this order
+# Priority Tracks playlist is for stuff that has to be on the card, script will warn otherwise
+# (e.g. I want to listen to this album during vacation, make sure it's there)
+playlists = ["Priority Tracks", "Ponies", "Rating > 4", "Rating > 3", "Rating > 2"]
+
+# allow overriding some of the default config specified above with fplsync's argument parser
+parser = fplsync.make_arg_parser(optional_only=True)
+parser.description = ("Sync these foobar2000 playlists and their songs from Tassadar to Mengsk: " +
+                     str(playlists) + ". If Priority Tracks doesn't fit entirely, script will" +
+                     "warn and prompt to continue.")
+parser.parse_args(namespace=config)
 
 
 director = fplsync.SyncDirector(config)
