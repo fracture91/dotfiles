@@ -37,7 +37,7 @@ config.min_free = "500M"
 # prefer songs in this order
 # Priority Tracks playlist is for stuff that has to be on the card, script will warn otherwise
 # (e.g. I want to listen to this album during vacation, make sure it's there)
-playlists = ["Priority Tracks", "Ponies", "Rating > 4", "Rating > 3", "Rating > 2"]
+playlists = ["Priority Tracks", "Ponies", "Rating > 4", "Rating > 3", "Rating > 2", "Probably Good"]
 
 # allow overriding some of the default config specified above with fplsync's argument parser
 parser = fplsync.make_arg_parser(optional_only=True)
@@ -50,6 +50,8 @@ parser.parse_args(namespace=config)
 director = fplsync.SyncDirector(config)
 index = fplsync.PlaylistIndex(config)
 for name in playlists:
+	if name == "All Tracks":
+		continue
 	try:
 		director.add_playlist(index.get_playlist(name))
 	except fplsync.OutOfSpaceException as e:
