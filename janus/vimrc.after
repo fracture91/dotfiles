@@ -15,4 +15,5 @@ set switchbuf=usetab
 set textwidth=100
 " show line where textwidth is
 set colorcolumn=-0
+let g:syntastic_cpp_check_header = 1
 
