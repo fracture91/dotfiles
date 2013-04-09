@@ -59,6 +59,9 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
 fi
 
+# ignore case when using tab completion
+bind 'set completion-ignore-case on'
+
 # for __git_ps1
 if [ -f ~/.git-prompt.sh ]; then
 	. ~/.git-prompt.sh
