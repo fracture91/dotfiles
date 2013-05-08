@@ -46,6 +46,7 @@ chatnets = {
     nick = "ahurle";
     username = "ahurle";
     realname = "Andrew Hurle";
+    autosendcmd = "exec -msg nickserv sed -n '3p' < .irssi/identify";
   };
   Ubuntu = { type = "IRC"; };
 };
