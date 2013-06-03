@@ -1,3 +1,15 @@
 Host hg.mozilla.org
 User fracture91@gmail.com
 
+Host spweb1
+User cogo
+
+Host spweb2
+User cogo
+
+Host spmail1
+User cogo
+
+Host splb
+User cogo
+
