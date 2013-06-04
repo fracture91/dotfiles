@@ -4,3 +4,7 @@
 [submodule "fplsync"]
 	path = fplsync
 	url = git://github.com/fracture91/fplsync.git
+[submodule "janus/vim-localvimrc"]
+	path = janus/vim-localvimrc
+	url = git://github.com/embear/vim-localvimrc.git
+	ignore = dirty # ignore untracked doc/tags files that is created
