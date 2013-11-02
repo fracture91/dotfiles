@@ -67,7 +67,12 @@ for name in playlists:
 		break
 for name in playlists:
 	try:
-		director.add_songs(index.get_playlist(name), randomly=True)
+		# Don't add songs randomly, since that creates a lot of churn once you don't have enough
+		# space.  Ideally, we could "remember" the last randomized state and only add/remove from it
+		# when necessary to fit in size constraints.  Then add a "shuffle" flag that ignored state.
+		# Add in reverse order, since more recent songs tend to be at the bottom, and we probably
+		# want those more than old songs.
+		director.add_songs(reversed(list(index.get_playlist(name))), randomly=False)
 	except fplsync.OutOfSpaceException as e:
 		print(e)
 		if name == "Priority Tracks":
