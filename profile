@@ -18,5 +18,9 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+    export PATH="$HOME/bin:$PATH"
 fi
+
+# OSX includes these on the path
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+

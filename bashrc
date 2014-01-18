@@ -144,3 +144,8 @@ if [ -f ~/.git-completion.sh ]; then
 	. ~/.git-completion.sh
 fi
 
+if [ -d "$HOME/.rvm" ]; then
+	# OSX has this for RVM
+	PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+fi
+
