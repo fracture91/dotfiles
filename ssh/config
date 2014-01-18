@@ -10,6 +10,21 @@ User cogo
 Host spmail1
 User cogo
 
+Host spmail1-new
+User cogo
+
+Host spmail2
+User cogo
+
 Host splb
+User cogo
+
+Host spgrid1
+User cogo
+
+Host spgrid2
+User cogo
+
+Host spgrid3
 User cogo
 
