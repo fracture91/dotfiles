@@ -111,6 +111,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# alias that excludes common directories for a recursive grep
+alias rgrep='grep -r --exclude=*~ --exclude=*.pyc --exclude=tags --exclude-dir=log --exclude-dir=.git --exclude-dir=venv --exclude-dir=test_data'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
