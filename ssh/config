@@ -1,6 +1,15 @@
 Host hg.mozilla.org
 User fracture91@gmail.com
 
+Host foster
+HostName foster.lsacc.net
+User ahurle
+IdentityFile ~/.ssh/id_rsa_8192
+
+Host alum
+HostName alum.wpi.edu
+User ahurle
+
 Host spweb1
 User cogo
 
