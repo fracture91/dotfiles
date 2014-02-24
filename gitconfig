@@ -11,6 +11,7 @@
 	ff = !branch=$(git symbolic-ref HEAD | sed s:refs/heads/::) && rbranch=$(git config --get branch.$branch.merge | sed s:refs/heads/::) && git merge --ff-only $(git config --get branch.$branch.remote)/$rbranch
 	# intercommit old new - show the interdiff between two commits.  Requires patchutils.
 	intercommit = !sh -c 'git show "$1" > .git/commit1 && git show "$2" > .git/commit2 && interdiff .git/commit[12] | less -FRSX' -
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 
 [push]
 	default = current
