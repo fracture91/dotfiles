@@ -112,7 +112,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # alias that excludes common directories for a recursive grep
-alias rgrep='grep -r --exclude=*~ --exclude=*.pyc --exclude=tags --exclude-dir=log --exclude-dir=.git --exclude-dir=venv --exclude-dir=test_data'
+alias rgrep='grep -r --exclude=*~ --exclude=*.pyc --exclude=tags --exclude-dir=log --exclude-dir=.git --exclude-dir=venv --exclude-dir=test_data --exclude-dir=./config/data_*'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -124,8 +124,9 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # diff two directory listings recursively and show in vim
-function vdiffdir { vimdiff <(cd "$1" && find . | sort) <(cd "$2" && find . | sort); }
-export -f vdiffdir
+# not working in OSX?
+#function vdiffdir { vimdiff <(cd "$1" && find . | sort) <(cd "$2" && find . | sort); }
+#export -f vdiffdir
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
