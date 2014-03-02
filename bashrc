@@ -125,8 +125,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # diff two directory listings recursively and show in vim
 # not working in OSX?
-#function vdiffdir { vimdiff <(cd "$1" && find . | sort) <(cd "$2" && find . | sort); }
-#export -f vdiffdir
+if [[ "$OSTYPE" != "darwin"* ]]; then
+	function vdiffdir { vimdiff <(cd "$1" && find . | sort) <(cd "$2" && find . | sort); }
+	export -f vdiffdir
+fi
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
