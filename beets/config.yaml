@@ -1,0 +1,27 @@
+directory: /media/Tassadar/Music
+library: ~/.config/beets/tassadar.blb
+
+plugins: info copyartifacts
+
+import:
+  copy: yes
+  timid: yes
+  detail: yes
+  log: ~/.config/beets/tassadar_import.log
+  languages: en
+
+match:
+  preferred:
+    countries: ['US', 'GB|UK']
+    media: ['CD', 'Digital Media|File']
+    original_year: yes
+
+paths:
+  default: $albumartist/$album%aunique{}/$track $artist - $title
+  singleton: $artist/Non-Album/$artist - $title
+  comp: Various Artists/$album%aunique{}/$track $artist - $title
+
+copyartifacts:
+  extensions: .jpg .png .gif .bmp .cue .log .txt .nfo .sfv .m3u .m3u8 .md .jpeg
+  print_ignored: yes
+

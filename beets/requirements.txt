@@ -1,0 +1,8 @@
+trash-cli==0.12.9.14-r0
+dtrx==7.1
+beets==1.3.3
+
+# original is sbarakat/beets-copyartifacts
+# this commit has fixed reimport behavior
+git+git://github.com/jlefley/beets-copyartifacts@ff630dd5578a5bb76b8b3633b66df833aa2004b0#egg=beets-copyartifacts
+
