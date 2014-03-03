@@ -1,5 +1,6 @@
 #!/usr/bin/python2
 # this should probably be a beets subcommand plugin, but I'm being lazy
+# see also: https://github.com/sampsyo/beets/issues/156
 
 import argparse, os, subprocess
 
