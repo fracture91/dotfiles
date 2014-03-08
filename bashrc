@@ -130,6 +130,9 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
 	export -f vdiffdir
 fi
 
+# convert all .flac files in current directory to mp3 v0
+alias flac2mp3v0='for f in *.flac; do avconv -i "$f" -qscale:a 0 "${f[@]/%flac/mp3}"; done'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
