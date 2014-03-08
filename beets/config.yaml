@@ -1,7 +1,7 @@
 directory: /media/Tassadar/Music
 library: ~/.config/beets/tassadar.blb
 
-plugins: info copyartifacts
+plugins: info copyartifacts discogs
 
 import:
   copy: yes
