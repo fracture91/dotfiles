@@ -35,8 +35,8 @@ config.fb2k_source_mapping = r"F:\Music"
 Using Tassadar subdirectories here in case some app decides to write to the Music or Playlist
 directories, since they seem to be somewhat "standard" and likely to be used.
 """
-config.dest = "/media/Mengsk/Music/Tassadar"
-config.playlist_dest = "/media/Mengsk/Playlists/Tassadar"
+config.dest = "/media/Raynor/Music/Tassadar"
+config.playlist_dest = "/media/Raynor/Playlists/Tassadar"
 
 # never use up the last gig, and always leave 500 megs free
 config.max_size = "-1G"
@@ -49,7 +49,7 @@ playlists = ["Priority Tracks", "Rating > 4", "Rating > 3", "Rating > 2", "Proba
 
 # allow overriding some of the default config specified above with fplsync's argument parser
 parser = fplsync.make_arg_parser(optional_only=True)
-parser.description = ("Sync these foobar2000 playlists and their songs from Tassadar to Mengsk: " +
+parser.description = ("Sync these foobar2000 playlists and their songs from Tassadar to Raynor: " +
                      str(playlists) + ". If Priority Tracks doesn't fit entirely, script will" +
                      "warn and prompt to continue.")
 parser.parse_args(namespace=config)
