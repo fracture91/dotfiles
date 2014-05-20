@@ -42,7 +42,7 @@ ${upspeedgraph eth0 40,250 999999 999999 -l}
 ↓${downspeed eth0}/${totaldown eth0}\
 ${alignr}${upspeed eth0}/${totalup eth0}↑
 ${downspeedgraph eth0 40,250 999999 999999 -l}
-${execi 3600 wget -O - http://ipecho.net/plain | tail}\
+${execi 3600 wget -O - http://echoip.com | tail}\
 ${alignr}${addr eth0}
 
 
@@ -53,7 +53,7 @@ ${upspeedgraph wlan0 40,250 999999 999999 -l}
 ↓${downspeed wlan0}/${totaldown wlan0}\
 ${alignr}${upspeed wlan0}/${totalup wlan0}↑
 ${downspeedgraph wlan0 40,250 999999 999999 -l}
-${execi 3600 wget -O - http://ipecho.net/plain | tail}\
+${execi 3600 wget -O - http://echoip.com | tail}\
 ${alignr}${addr wlan0}
 
 
