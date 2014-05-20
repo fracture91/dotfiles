@@ -1,0 +1,8 @@
+trash-cli==0.12.9.14
+dtrx==7.1
+beets==1.3.4
+
+#git+git://github.com/sbarakat/beets-copyartifacts@c7a86521beb759900a99b1cd999a4d9427f55fdb#egg=beets-copyartifacts
+# fork with better unicode behavior
+git+git://github.com/jlefley/beets-copyartifacts@486869d25859622181590a6ad78ac52d587ba363#egg=beets-copyartifacts
+
