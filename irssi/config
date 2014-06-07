@@ -17,8 +17,8 @@ servers = (
     autoconnect = "yes";
   },
   {
-    address = "irc.nefondus.net";
-    chatnet = "nefondus";
+    address = "irc.lsacc.net";
+    chatnet = "lsacc";
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "no";
@@ -41,7 +41,7 @@ chatnets = {
     realname = "Andrew Hurle";
     autosendcmd = "exec -msg nickserv sed -n '2p' < .irssi/identify";
   };
-  nefondus = {
+  lsacc = {
     type = "IRC";
     nick = "ahurle";
     username = "ahurle";
@@ -58,7 +58,7 @@ channels = (
   { name = "#fx-team"; chatnet = "mozilla"; autojoin = "no"; },
   { name = "#ux"; chatnet = "mozilla"; autojoin = "no"; },
   { name = "#wpisuite"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#WPI"; chatnet = "nefondus"; autojoin = "yes"; }
+  { name = "#WPI"; chatnet = "lsacc"; autojoin = "yes"; }
 );
 
 aliases = {
