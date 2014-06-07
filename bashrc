@@ -20,6 +20,13 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# pick the best installed editor
+editor_prefs=(vim vi nano pico emacs ed)
+for ed in "${editor_prefs[@]}"; do
+    which $ed > /dev/null 2>&1 && export EDITOR=$(which $ed) && break
+done
+export VISUAL=$EDITOR
+
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
