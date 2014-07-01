@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if screen -list | grep "\.irssi" > /dev/null
+then
+  # if irssi screen session exists, attach to it, detach from others
+  # this way, only one screen can see irssi (so you don't mess up height/width)
+  screen -Rxd irssi
+else
+  # otherwise, create the irssi screen session with the right name, run irssi
+  screen -S irssi -t irssi irssi
+fi
+exit 0
+
