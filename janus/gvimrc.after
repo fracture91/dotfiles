@@ -1,5 +1,12 @@
 colorscheme winter
 
+hi CursorLine   guibg=#cdc9c3
+hi CursorColumn guibg=#d0ccc6
+hi MatchParen gui=reverse guifg=Cyan guibg=Black
+hi Search gui=bold,reverse guibg=Orange
+hi Todo gui=reverse guibg=red guifg=yellow
+set cursorline cursorcolumn
+
 " start with larger window
 set lines=50 columns=150
 
