@@ -58,6 +58,7 @@ channels = (
   { name = "#fx-team"; chatnet = "mozilla"; autojoin = "no"; },
   { name = "#ux"; chatnet = "mozilla"; autojoin = "no"; },
   { name = "#wpisuite"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#beets"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#WPI"; chatnet = "lsacc"; autojoin = "yes"; }
 );
 
