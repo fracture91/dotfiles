@@ -1,8 +1,8 @@
 trash-cli==0.12.9.14
 dtrx==7.1
-beets==1.3.4
+# 1.3.8 pre-release
+git+git://github.com/sampsyo/beets@7328a09644da06740fa76447468674d48a094820#egg=beets
+discogs-client==2.0.2
 
-#git+git://github.com/sbarakat/beets-copyartifacts@c7a86521beb759900a99b1cd999a4d9427f55fdb#egg=beets-copyartifacts
-# fork with better unicode behavior
-git+git://github.com/jlefley/beets-copyartifacts@486869d25859622181590a6ad78ac52d587ba363#egg=beets-copyartifacts
+git+git://github.com/sbarakat/beets-copyartifacts@863b81e5ec7260969180b3bc250fcf7100d1a811#egg=beets-copyartifacts
 
