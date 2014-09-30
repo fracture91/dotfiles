@@ -140,6 +140,13 @@ fi
 # convert all .flac files in current directory to mp3 v0
 alias flac2mp3v0='for f in *.flac; do avconv -i "$f" -qscale:a 0 "${f[@]/%flac/mp3}"; done'
 
+# try to connect every 0.5 secs (modulo timeouts)
+# nice for when you're constantly rebooting a machine
+sssh(){
+	while true; do command ssh "$@"; [ $? -ne 255 ] && break || sleep 0.5; done
+}
+export -f sssh
+
 # -R lets you pipe colored grep output into less
 # -i turns on case-insensitive searching with SmartCasing
 LESS="-Ri"; export LESS
