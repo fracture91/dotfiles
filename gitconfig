@@ -12,6 +12,8 @@
 	# intercommit old new - show the interdiff between two commits.  Requires patchutils.
 	intercommit = !sh -c 'git show "$1" > .git/commit1 && git show "$2" > .git/commit2 && interdiff .git/commit[12] | less -FRSX' -
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	# show all local branches in chronological order
+	branch-date = "!bash -c 'for k in `git branch | sed s/^..//`; do echo -e `git log -1 --pretty=format:\"%Cgreen%ci %Cblue%cr%Creset\" $k --`\\\t\"$k\";done | sort -r'"
 
 [push]
 	default = current
