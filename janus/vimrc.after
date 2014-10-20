@@ -16,6 +16,7 @@ set textwidth=100
 " show line where textwidth is
 set colorcolumn=-0
 let g:syntastic_cpp_check_header = 1
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 " search and replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " highlight line/column of cursor location
