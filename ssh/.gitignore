@@ -1,5 +1,5 @@
-id_rsa
-id_rsa_8192
-known_hosts
-authorized_keys
+*
+
+# ignore everything but config (private keys, authorized_keys, etc)
+!config
 
