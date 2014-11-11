@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require "pathname"
+require "delegate"
+
+class FilePath < SimpleDelegator
+	def initialize(*args)
+		super Pathname.new(*args)
+		# trailing slash is usually important - otherwise symlinks to directories
+		# won't work right when passed to `find`
+		fail if to_s[-1] != "/"
+	end
+
+	def trim
+		# however, make sure not to include the slash in the -path filter... :/
+		to_s[0..-2]
+	end
+end
+
+TASSADAR = FilePath.new("/media/Tassadar/")
+MESSY_MUSIC = FilePath.new(TASSADAR + "Messy Music/")
+INCOMING = FilePath.new(MESSY_MUSIC + "Incoming/")
+HIGH_QUALITY = FilePath.new(MESSY_MUSIC + "High Quality/")
+ORGANIZED = FilePath.new(TASSADAR + "Music/")
+
+search_string = ARGV.join(" ")
+
+puts "Looking for '#{search_string}'"
+puts "--Messy: #{MESSY_MUSIC}"
+system(*%W[find #{MESSY_MUSIC} ( -path #{INCOMING.trim} -o -path #{HIGH_QUALITY.trim} ) -prune -o -iwholename *#{search_string}* -print])
+puts "--Incoming: #{INCOMING}"
+system(*%W[find #{INCOMING} -iwholename *#{search_string}*])
+puts "--High Quality: #{HIGH_QUALITY}"
+system(*%W[find #{HIGH_QUALITY} -iwholename *#{search_string}*])
+puts "--Beets: #{ORGANIZED}"
+# just use beets instead of find - it's faster and searches metadata
+system(*%W[beet ls -p #{search_string}])
+
