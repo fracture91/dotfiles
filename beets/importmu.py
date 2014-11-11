@@ -31,12 +31,19 @@ if not os.path.isdir(norm_source):
 subprocess.check_call(["tree", norm_source])
 subprocess.call(["beet", "import", norm_source])
 
+def user_approves(message, default=True):
+	default_arg = "y" if default else "n"
+	y_or_n = "y/n".replace(default_arg, default_arg.upper())
+	response = raw_input("{0} {1}: ".format(message, y_or_n)).lower().strip()
+	return response == "y" or (response == "" and default)
+
 # use trash instead of deleting files normally so they go to the "recycle bin"
 if archive_source is not None:
-	if raw_input("Trash archive {0}? Y/n: ".format(archive_source)).lower() in ["", "y"]:
+	if user_approves("Trash archive {0}?".format(archive_source)):
 		subprocess.call(["trash", archive_source])
 	else: print "Not trashing archive"
-if raw_input("Trash source {0}? Y/n: ".format(norm_source)).lower() in ["", "y"]:
+
+if user_approves("Trash source {0}?".format(norm_source)):
 	subprocess.call(["trash", norm_source])
 else: print "Not trashing source"
 
