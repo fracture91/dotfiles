@@ -12,7 +12,11 @@ ap = argparse.ArgumentParser(description=desc)
 ap.add_argument("source", help="Directory or archive to import")
 args = ap.parse_args()
 
-norm_source = os.path.realpath(os.path.abspath(args.source))
+def normalize_path(path):
+	return os.path.realpath(os.path.abspath(path))
+
+HIGH_QUALITY = normalize_path("/media/Tassadar/Messy Music/High Quality")
+norm_source = normalize_path(args.source)
 archive_source = None
 
 if not os.path.isdir(norm_source):
@@ -43,7 +47,9 @@ if archive_source is not None:
 		subprocess.call(["trash", archive_source])
 	else: print "Not trashing archive"
 
-if user_approves("Trash source {0}?".format(norm_source)):
+trash_by_default = not norm_source.startswith(HIGH_QUALITY)
+
+if user_approves("Trash source {0}?".format(norm_source), trash_by_default):
 	subprocess.call(["trash", norm_source])
 else: print "Not trashing source"
 
