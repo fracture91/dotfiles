@@ -18,6 +18,8 @@
 	fff = !git fetch && git ff
 	mfff = !git checkout master && git fff && git back
 	find = log -S # append search term to find in diff - plus "-p" if you want to show diffs
+	# show commits from previous head onwards (good after fetch)
+	lc = log ORIG_HEAD.. --stat --no-merges
 	# fast forward to remote branch
 	ff = !branch=$(git symbolic-ref HEAD | sed s:refs/heads/::) && rbranch=$(git config --get branch.$branch.merge | sed s:refs/heads/::) && git merge --ff-only $(git config --get branch.$branch.remote)/$rbranch
 	# intercommit old new - show the interdiff between two commits.  Requires patchutils.
