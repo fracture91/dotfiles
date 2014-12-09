@@ -16,7 +16,8 @@
 	s = status
 	rc = rebase --continue
 	fff = !git fetch && git ff
-	mfff = !git checkout master && git fff && git back
+	mfff = !git checkout master && git fff
+	mfffb = !git mfff && git back
 	find = log -S # append search term to find in diff - plus "-p" if you want to show diffs
 	# show commits from previous head onwards (good after fetch)
 	lc = log ORIG_HEAD.. --stat --no-merges
@@ -27,6 +28,7 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	# show all local branches in chronological order
 	branch-date = "!bash -c 'for k in `git branch | sed s/^..//`; do echo -e `git log -1 --pretty=format:\"%Cgreen%ci %Cblue%cr%Creset\" $k --`\\\t\"$k\";done | sort -r'"
+	hub = !hub
 
 [push]
 	default = current
