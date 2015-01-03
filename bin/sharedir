@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# http://superuser.com/a/91966
+# A hacky little thing that will read-only share a directory with group/other
+
+chmod -R u+rwX,go+rX,go-w "$@"
+
