@@ -1,0 +1,3 @@
+# cycle through completion options on Shift + Tab
+"\e[Z": menu-complete
+
