@@ -74,7 +74,7 @@ for name in playlists:
 		# want those more than old songs.
 		director.add_songs(reversed(list(index.get_playlist(name))), randomly=False)
 	except fplsync.OutOfSpaceException as e:
-		print(e)
+		print("Out of space during {name}: {e}".format(**vars()))
 		if name == "Priority Tracks":
 			print("!!! Warning: Some Priority Tracks won't fit!")
 			if input("Enter Y to continue syncing songs: ") != "Y":
