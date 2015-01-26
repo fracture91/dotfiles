@@ -148,6 +148,14 @@ sssh(){
 }
 export -f sssh
 
+ssh_mount() {
+	sshfs `whoami`@$1\.local:/media/$2 /media/$2/
+}
+
+ssh_unmount() {
+	fusermount -u "/media/$1/"
+}
+
 # -R lets you pipe colored grep output into less
 # -i turns on case-insensitive searching with SmartCasing
 LESS="-Ri"; export LESS
