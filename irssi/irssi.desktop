@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Irssi
+Comment=Run irssi in screen
+Type=Application
+Exec=gnome-terminal --disable-factory --sm-client-disable --class=Irssi -x /home/ahurle/.irssi/screen
+StartupWMClass=Irssi
+Terminal=false
+Icon=/home/ahurle/.local/share/icons/irssi.png
+StartupNotify=true
+
