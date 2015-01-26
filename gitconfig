@@ -28,7 +28,14 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	# show all local branches in chronological order
 	branch-date = "!bash -c 'for k in `git branch | sed s/^..//`; do echo -e `git log -1 --pretty=format:\"%Cgreen%ci %Cblue%cr%Creset\" $k --`\\\t\"$k\";done | sort -r'"
+	recent-branches = !sh -c 'git branch-date | head -n "${1:-10}"' -
 	hub = !hub
 
 [push]
 	default = current
+[gui]
+	recentrepo = /Users/ahurle/.dotfiles
+	recentrepo = /Users/ahurle/cognius/rover
+	recentrepo = /Users/ahurle/cognius/smarterpays
+	recentrepo = /Users/ahurle/cognius/ateam
+	recentrepo = /Users/ahurle/cognius/cognag
