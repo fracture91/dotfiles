@@ -156,6 +156,9 @@ ssh_unmount() {
 	fusermount -u "/media/$1/"
 }
 
+# move a file somewhere, leaving a symlink in its place
+lmv() { [ -e "$1" -a -d "$2" ] && mv "$1" "$2"/ && ln -s $(readlink -f "$2"/"$(basename "$1")") "$(dirname "$1")"; }
+
 # -R lets you pipe colored grep output into less
 # -i turns on case-insensitive searching with SmartCasing
 LESS="-Ri"; export LESS
