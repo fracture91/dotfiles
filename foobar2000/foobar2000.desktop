@@ -1,0 +1,21 @@
+[Desktop Entry]
+Name=foobar2000
+Comment=foobar2000 media player from windows partition under wine
+Type=Application
+Exec=foobar2000
+StartupWMClass=foobar2000.exe
+Terminal=false
+Icon=/home/ahurle/.local/share/icons/foobar2000.png
+StartupNotify=true
+Actions=KillFoobar;KillPA;
+
+[Desktop Action KillFoobar]
+Name=pkill-foobar2000.exe
+Exec=pkill foobar2000.exe
+TargetEnvironment=Unity
+
+[Desktop Action KillPA]
+Name=pkill-pulseaudio
+Exec=pkill pulseaudio
+TargetEnvironment=Unity
+
