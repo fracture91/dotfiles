@@ -31,6 +31,9 @@
 	recent-branches = !sh -c 'git branch-date | head -n "${1:-10}"' -
 	hub = !hub
 
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
 [push]
 	default = current
 [gui]
