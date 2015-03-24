@@ -45,7 +45,14 @@ config.min_free = "500M"
 # prefer songs in this order
 # Priority Tracks playlist is for stuff that has to be on the card, script will warn otherwise
 # (e.g. I want to listen to this album during vacation, make sure it's there)
-playlists = ["Priority Tracks", "Rating > 4", "Rating > 3", "Rating > 2", "Probably Good", "Ponies"]
+playlists = [
+	"Priority Tracks",
+	"Rating > 4",
+	"Rating > 3",
+	"Rating > 2",
+	"Probably Good",
+	"Ponies",
+]
 
 # allow overriding some of the default config specified above with fplsync's argument parser
 parser = fplsync.make_arg_parser(optional_only=True)
