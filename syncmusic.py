@@ -48,6 +48,8 @@ config.min_free = "500M"
 playlists = [
 	"Priority Tracks",
 	"Rating > 4",
+	"Party",
+	"Makeout",
 	"Rating > 3",
 	"Rating > 2",
 	"Probably Good",
