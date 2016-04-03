@@ -1,7 +1,7 @@
 directory: /media/Tassadar/Music
 library: ~/.config/beets/tassadar.blb
 
-plugins: info copyartifacts discogs
+plugins: info copyartifacts discogs edit
 
 import:
   copy: yes
@@ -25,3 +25,5 @@ copyartifacts:
   extensions: .jpg .png .gif .bmp .cue .log .txt .nfo .sfv .m3u .m3u8 .md .jpeg
   print_ignored: yes
 
+edit:
+  itemfields: track title artist album albumartist year # rating comment
