@@ -19,6 +19,8 @@ let g:syntastic_cpp_check_header = 1
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 " fix stupid rubocop bug with this special script
 let g:syntastic_ruby_rubocop_exec = '~/.janus/rubocop.sh'
+let g:syntastic_haml_checkers = ['haml_lint']
+let g:syntastic_scss_checkers = ['scss_lint']
 " search and replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " highlight line/column of cursor location
