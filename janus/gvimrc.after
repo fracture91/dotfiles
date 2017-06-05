@@ -10,3 +10,11 @@ set cursorline cursorcolumn
 " start with larger window
 set lines=50 columns=150
 
+" Use syntax file to decide where to fold code
+set foldmethod=syntax
+" Show fold controls for the mouse in the gutter
+set foldcolumn=1
+" All folds are closed by default.  Open them.
+set foldlevelstart=20
+autocmd Syntax * normal zR
+
