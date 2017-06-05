@@ -8,3 +8,6 @@
 	path = janus/vim-localvimrc
 	url = git://github.com/embear/vim-localvimrc.git
 	ignore = dirty # ignore untracked doc/tags files that is created
+[submodule "janus/run-rspec.vim"]
+	path = janus/run-rspec.vim
+	url = git@github.com:itmammoth/run-rspec.vim.git

@@ -23,4 +23,8 @@ let g:syntastic_ruby_rubocop_exec = '~/.janus/rubocop.sh'
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " highlight line/column of cursor location
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-
+" run-rspec.vim
+nnoremap <Leader>f :RunSpec<CR>
+nnoremap <Leader>l :RunSpecLine<CR>
+nnoremap <Leader>e :RunSpecLastRun<CR>
+nnoremap <leader>cr :RunSpecCloseResult<CR>
