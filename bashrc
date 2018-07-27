@@ -139,6 +139,11 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
 	export -f vdiffdir
 fi
 
+# necessary for pylint syntastic checker in vim
+if [[ "$OSTYPE" = "darwin"* ]]; then
+	export LC_CTYPE=$LANG
+fi
+
 # convert all .flac files in current directory to mp3 v0
 alias flac2mp3v0='for f in *.flac; do avconv -i "$f" -qscale:a 0 "${f[@]/%flac/mp3}"; done'
 alias wav2mp3v0='for f in *.wav; do avconv -i "$f" -qscale:a 0 "${f[@]/%wav/mp3}"; done'
