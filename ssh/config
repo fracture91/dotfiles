@@ -1,9 +1,46 @@
-UseRoaming no
-
-Host *
-	ServerAliveInterval 60
-	ServerAliveCountMax 2
+# Earlier `Host` stanzas take precedence
+# Host example
+#   HostName example.com
+#   User ahurle
+#   Port 22222
+#   IdentitiesOnly yes
+#   IdentityFile ~/.ssh/id_ed25519_example
 
 Host hg.mozilla.org
-User fracture91@gmail.com
+  User fracture91@gmail.com
 
+Host *
+  # Avoid connection timeouts
+  #   https://patrickmn.com/aside/how-to-keep-alive-ssh-sessions/
+  ServerAliveInterval 60
+  ServerAliveCountMax 2
+
+  # Resolve security issue in OpenSSH < 7.1p2,
+  # just in case this config is used on an old machine.
+  #   https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/OpenSSHClientRoaming
+  UseRoaming no
+
+  # Prefer keys in this order for best security.
+  #   https://infosec.mozilla.org/guidelines/openssh
+  #
+  # If you have used `ssh-add`, those keys are preferred over these
+  # in the order they were added.  Use `ssh-add -D` to blow them away.
+  # `ssh-add -l` will list all the the keys that have been added.
+  #
+  # Note that ubuntu has problems with that command and you may need
+  # to disable SSH Key Agent in your Startup Applications:
+  #   https://stackoverflow.com/a/25465155
+  #
+  # Alternatively, use `IdentitiesOnly yes` in a host-specific section,
+  # in combination with using a specific `IdentityFile`.
+  #
+  # This article is helpful for understanding the ordering:
+  #   https://utcc.utoronto.ca/~cks/space/blog/sysadmin/SSHIdentitiesOffered
+  #
+  # If the server's MaxAuthTries setting is low and you just want a password:
+  #   `ssh -o PreferredAuthentications=password user@example.com`
+  IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/id_rsa_8192
+  IdentityFile ~/.ssh/id_rsa_4096
+  # my id_rsa is 2048 bits, which is still safe but consider it deprecated
+  IdentityFile ~/.ssh/id_rsa
