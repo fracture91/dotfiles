@@ -7,7 +7,3 @@ Host *
 Host hg.mozilla.org
 User fracture91@gmail.com
 
-Host alum
-HostName alum.wpi.edu
-User ahurle
-
