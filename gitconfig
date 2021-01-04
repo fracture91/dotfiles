@@ -37,8 +37,3 @@
 [push]
 	default = current
 [gui]
-	recentrepo = /Users/ahurle/.dotfiles
-	recentrepo = /Users/ahurle/cognius/rover
-	recentrepo = /Users/ahurle/cognius/smarterpays
-	recentrepo = /Users/ahurle/cognius/ateam
-	recentrepo = /Users/ahurle/cognius/cognag
