@@ -147,6 +147,7 @@ fi
 # convert all .flac files in current directory to mp3 v0
 alias flac2mp3v0='for f in *.flac; do avconv -i "$f" -qscale:a 0 "${f[@]/%flac/mp3}"; done'
 alias wav2mp3v0='for f in *.wav; do avconv -i "$f" -qscale:a 0 "${f[@]/%wav/mp3}"; done'
+alias flac2alac='for f in *.flac; do ffmpeg -i "$f" -acodec alac -vn "${f[@]/%flac/m4a}"; done'
 
 # try to connect every 0.5 secs (modulo timeouts)
 # nice for when you're constantly rebooting a machine
