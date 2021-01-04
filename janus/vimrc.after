@@ -1,7 +1,15 @@
+set encoding=utf-8
+scriptencoding utf-8
 set tabstop=2
-set noexpandtab
+set expandtab
 set shiftwidth=2
 set softtabstop=2
+" replace janus' 'tabs as spaces' setting with special char in terminal
+if !has('gui_running')
+  set listchars-=tab:\ \ 
+  set listchars^=tab:→\ 
+  highlight SpecialKey ctermfg=darkgrey ctermbg=none
+endif
 " tab-complete paths in commands
 set wildmode=longest,list,full
 set wildmenu
