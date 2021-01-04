@@ -121,7 +121,7 @@ fi
 # alias that excludes common directories for a recursive grep
 alias rgrep='grep -r --exclude=*~ --exclude=*.pyc --exclude=tags --exclude-dir=log --exclude-dir=.git --exclude-dir=venv --exclude-dir=test_data --exclude-dir=./config/data_*'
 
-alias ag='ag --no-break --pager="less -MIRFX"'
+alias ag='ag --nobreak --pager="less -MIRFX"'
 
 # some more ls aliases
 alias ll='ls -alF'
