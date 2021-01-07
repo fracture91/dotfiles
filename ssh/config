@@ -6,8 +6,51 @@
 #   IdentitiesOnly yes
 #   IdentityFile ~/.ssh/id_ed25519_example
 
+
+
+##### My Machines #####
+
+# Is it unsafe to list these here?  Perhaps.
+# But otherwise I would forget them.
+# Most of this shows up on shodan.io anyway.
+
+Host voyager voyager.ahurle.dev
+  HostName voyager.ahurle.dev
+  Port 55552
+Host voyager voyager.ahurle.dev voyager.local Voyager.local
+  User ahurle
+
+Host home.local Home.local
+  HostName 192.168.1.1
+Host home home.ahurle.dev
+  HostName home.ahurle.dev
+Host home home.ahurle.dev home.local Home.local
+  User admin
+  Port 55556
+
+Host tarsonis tarsonis.ahurle.dev
+  HostName tarsonis.ahurle.dev
+  Port 55555
+Host tarsonis tarsonis.ahurle.dev tarsonis.local Tarsonis.local
+  User ahurle
+
+Host xil
+  HostName xil.ahurle.dev
+Host xil xil.ahurle.dev xil.synology.me
+  Port 55554
+Host xil xil.ahurle.dev xil.synology.me xil.local Xil.local
+  User ahurle
+
+
+
+##### Other Machines #####
+
 Host hg.mozilla.org
   User fracture91@gmail.com
+
+
+
+##### Defaults #####
 
 Host *
   # Avoid connection timeouts
@@ -26,6 +69,7 @@ Host *
   # If you have used `ssh-add`, those keys are preferred over these
   # in the order they were added.  Use `ssh-add -D` to blow them away.
   # `ssh-add -l` will list all the the keys that have been added.
+  # bin/ssh-add-default will add keys in the correct order.
   #
   # Note that ubuntu has problems with that command and you may need
   # to disable SSH Key Agent in your Startup Applications:
