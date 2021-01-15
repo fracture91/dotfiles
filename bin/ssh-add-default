@@ -11,8 +11,8 @@ fi
 
 keys=$(
   sed -E '/^\s*#/d;s/#.*//' ~/.ssh/config | # strip comments
-  sed -E -n '/^\s*Host \*\s*$/,$p' | # find everything after the "Host *" line
-  sed -E -n 's/^\s*IdentityFile (.+)$/\1/p' # find the arguments to IdentityFile
+  sed -E -n '/^[[:space:]]*Host \*[[:space:]]*$/,$p' | # find everything after the "Host *" line
+  sed -E -n 's/^[[:space:]]*IdentityFile (.+)$/\1/p' # find the arguments to IdentityFile
 )
 
 # perform tilde expansion since ssh-add doesn't do it
