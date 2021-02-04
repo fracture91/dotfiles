@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# kinto does not work nicely with barrier
+# https://github.com/rbreaves/kinto/issues/373
+# lets watch the log file for when we move from linux -> macos
+# and kill xkeysnail when that happens
+
+# make sure the file path below matches your log file location
+# (Barrier -> Change Settings -> Log to file)
+
+# You may want to add a sudoers entry so you can run as a startup application:
+# sudo visudo -f /etc/sudoers.d/kill-kinto-for-barrier
+# ahurle Tarsonis = NOPASSWD: /home/ahurle/bin/kill-kinto-for-barrier
+
+if [ "$(id -u)" -ne 0 ]; then
+  # make sure the sudos below won't fail once we reach them
+  echo "Please run as root"
+  exit 1
+fi
+
+tail -fn0 ~/snap/barrier/current/barrier.log |
+  grep --line-buffered -o -e "entering screen" -e "leaving screen" |
+  while read -r line; do
+    case "$line" in
+      "entering screen")
+        sudo systemctl start xkeysnail
+        ;;
+      "leaving screen")
+        sudo systemctl stop xkeysnail
+        ;;
+      *)
+        echo "Unhandled keyword ${line}" >&2
+        exit 1
+    esac
+  done
+
