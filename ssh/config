@@ -41,6 +41,18 @@ Host xil xil.ahurle.dev xil.synology.me
 Host xil xil.ahurle.dev xil.synology.me xil.local Xil.local
   User ahurle
 
+Host char
+  HostName char.ahurle.dev
+  # Port 1234nope
+# When both interfaces are active, char.local will bounce between them
+# Use these aliases instead to stick to one, assuming Manual DHCP on router
+Host char-wired
+  Hostname 192.168.1.89
+Host char-wireless
+  Hostname 192.168.1.38
+Host char char.ahurle.dev char.local Char.local char-wired char-wireless
+  User ahurle
+
 
 
 ##### Other Machines #####
