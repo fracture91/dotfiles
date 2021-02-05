@@ -18,7 +18,7 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
-tail -fn0 ~/snap/barrier/current/barrier.log |
+tail --retry -Fn0 ~/snap/barrier/current/barrier.log |
   grep --line-buffered -o -e "entering screen" -e "leaving screen" |
   while read -r line; do
     case "$line" in
