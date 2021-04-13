@@ -1,0 +1,44 @@
+/* Hide the top tab bar on macOS since I'm using Tree Style Tabs */
+
+#TabsToolbar-customization-target {
+  visibility: collapse;
+}
+
+#navigator-toolbox[inFullscreen="true"] #titlebar {
+  visibility: collapse;
+}
+
+#sidebar-header {
+  visibility: collapse;
+}
+
+/* realign elements */
+#nav-bar {
+  margin-top: calc(-1 * var(--tab-min-height));
+
+  box-shadow: none !important;
+}
+
+#nav-bar[inFullscreen="true"] {
+  margin-top: unset;
+  margin-right: unset;
+}
+
+.titlebar-buttonbox-container {
+  min-height: var(--tab-min-height);
+}
+
+/* recolor elements and enable window dragging */
+#navigator-toolbox {
+  background-color: var(--toolbar-bgcolor);
+  background-image: var(--toolbar-bgimage);
+  background-clip: padding-box;
+  color: var(--toolbar-color);
+
+  -moz-window-dragging: drag;
+}
+
+
+#TabsToolbar > .toolbar-items,
+#TabsToolbar > .titlebar-spacer{ visibility: hidden }
+#nav-bar{ margin-top: -32px; padding: 3px 15px 0px 75px !important; }
