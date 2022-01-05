@@ -21,6 +21,8 @@ if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 
-# OSX includes these on the path
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+# Make sure homebrew works properly on OSX
+if [ -f "/opt/homebrew/bin/brew" ] ; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
